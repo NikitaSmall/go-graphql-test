@@ -29,6 +29,9 @@ func NewRoot(db *postgres.Db) *Root {
 							"name": &graphql.ArgumentConfig{
 								Type: graphql.String,
 							},
+							"friendly": &graphql.ArgumentConfig{
+								Type: graphql.Boolean,
+							},
 						},
 						Resolve: resolver.UserResolver,
 					},

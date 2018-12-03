@@ -19,5 +19,11 @@ func (r *Resolver) UserResolver(p graphql.ResolveParams) (interface{}, error) {
 		return users, nil
 	}
 
+	friendly, ok := p.Args["friendly"].(bool)
+	if ok {
+		users := r.db.GetUsersByFriendly(friendly)
+		return users, nil
+	}
+
 	return nil, nil
 }
